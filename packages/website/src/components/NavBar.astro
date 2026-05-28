@@ -1,0 +1,98 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#FAFAFA] border-b-[3px] border-black">
+  <div class="section-container">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 font-display font-bold text-xl">
+        <span class="bg-[#FFE500] px-2 py-1 border-[3px] border-black">AI</span>
+        <span>Adaptasi</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`px-4 py-2 font-display font-semibold text-sm uppercase tracking-wide border-[3px] border-transparent transition-all hover:bg-[#FFE500] hover:border-black ${
+              currentPath === link.href ? 'bg-[#FFE500] border-black' : ''
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="menu-toggle"
+        class="md:hidden neo-btn neo-btn-secondary p-2"
+        aria-label="Toggle menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+          <line x1="3" y1="6" x2="21" y2="6" class="menu-line menu-line-1" />
+          <line x1="3" y1="12" x2="21" y2="12" class="menu-line menu-line-2" />
+          <line x1="3" y1="18" x2="21" y2="18" class="menu-line menu-line-3" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 top-16 bg-[#FAFAFA] border-t-[3px] border-black transform translate-x-full transition-transform duration-200 ease-out z-40"
+  >
+    <div class="flex flex-col p-4 gap-2">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`px-4 py-3 font-display font-bold text-lg uppercase border-[3px] border-black transition-all hover:bg-[#FFE500] ${
+            currentPath === link.href ? 'bg-[#FFE500]' : 'bg-white'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  let isOpen = false;
+
+  menuToggle?.addEventListener('click', () => {
+    isOpen = !isOpen;
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('translate-x-full', !isOpen);
+      mobileMenu.classList.toggle('translate-x-0', isOpen);
+    }
+  });
+
+  // Close on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      isOpen = false;
+      mobileMenu.classList.add('translate-x-full');
+      mobileMenu.classList.remove('translate-x-0');
+    });
+  });
+</script>
+
+<style>
+  .menu-line {
+    transition: all 150ms ease-out;
+  }
+</style>

@@ -1,0 +1,132 @@
+---
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+
+const values = [
+  {
+    title: 'Results-Driven',
+    description: 'We focus on delivering measurable outcomes, not just technical solutions. Every project is built with your business goals in mind.',
+    color: '#FF6B9D',
+  },
+  {
+    title: 'Transparent',
+    description: 'No hidden fees, no surprises. We communicate clearly and keep you updated throughout every phase of the project.',
+    color: '#00C2FF',
+  },
+  {
+    title: 'Technical Excellence',
+    description: 'We stay at the forefront of AI and automation technology to provide cutting-edge solutions that scale with your needs.',
+    color: '#A8FF00',
+  },
+  {
+    title: 'Partnership',
+    description: "We don't just deliver and leave. We build long-term relationships and support your team as you grow.",
+    color: '#FFE500',
+  },
+];
+---
+
+<NavBar />
+
+<main class="pt-16">
+  <Section background="yellow" class="!py-20 md:!py-28">
+    <div class="max-w-3xl">
+      <div class="inline-block bg-black text-white px-3 py-1 border-[3px] border-black font-mono text-xs font-bold mb-6">
+        WHO WE ARE
+      </div>
+      <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+        About Adaptasi AI
+      </h1>
+      <p class="text-lg md:text-xl text-[#111111]/80 max-w-2xl">
+        We're a team dedicated to helping businesses harness the power of AI and automation.
+      </p>
+    </div>
+  </Section>
+
+  <Section background="white">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="font-display font-bold text-3xl mb-6">Our Story</h2>
+        <div class="space-y-4 text-[#666666] leading-relaxed">
+          <p>
+            Adaptasi AI was founded with a simple mission: helping businesses integrate AI and automation without the complexity.
+          </p>
+          <p>
+            After years of working in the industry — from enterprise software development at companies like Yamaha Motor and Telkom Indonesia to building our own startups — we saw a common problem: businesses wanted to adopt AI but didn't know where to start.
+          </p>
+          <p>
+            That's when we decided to build Adaptasi AI. We specialize in making AI accessible and practical for businesses of all sizes, whether you're a local shop in Indonesia or an international company looking to streamline operations.
+          </p>
+          <p>
+            Today, we work with clients across Indonesia and internationally, building custom AI solutions and automation workflows that actually move the needle.
+          </p>
+        </div>
+      </div>
+      <div class="neo-card p-8 bg-[#FAFAFA]">
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-[#FFE500] border-[3px] border-black flex items-center justify-center">
+              <span class="font-display font-bold text-2xl">4+</span>
+            </div>
+            <div>
+              <p class="font-display font-bold text-lg">Years Experience</p>
+              <p class="text-[#666666] text-sm">In AI & Automation</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-[#FF6B9D] border-[3px] border-black flex items-center justify-center">
+              <span class="font-display font-bold text-2xl">20+</span>
+            </div>
+            <div>
+              <p class="font-display font-bold text-lg">Projects Delivered</p>
+              <p class="text-[#666666] text-sm">Across various industries</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-[#00C2FF] border-[3px] border-black flex items-center justify-center">
+              <span class="font-display font-bold text-2xl">n8n</span>
+            </div>
+            <div>
+              <p class="font-display font-bold text-lg">Official Partner</p>
+              <p class="text-[#666666] text-sm">n8n Workflow Automation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section background="muted">
+    <h2 class="font-display font-bold text-3xl mb-8 text-center">Our Values</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {values.map(value => (
+        <div class="neo-card p-6">
+          <div
+            class="w-8 h-8 border-[3px] border-black mb-4"
+            style={`background: ${value.color};`}
+          />
+          <h3 class="font-display font-bold text-xl mb-2">{value.title}</h3>
+          <p class="text-[#666666] text-sm leading-relaxed">{value.description}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section background="dark">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="font-display font-bold text-3xl md:text-4xl mb-4 text-white">
+        Let's Build Something Together
+      </h2>
+      <p class="text-gray-400 text-lg mb-8">
+        Ready to bring AI and automation to your business? We'd love to hear from you.
+      </p>
+      <Button href="/contact" variant="primary" size="lg">
+        Get in Touch →
+      </Button>
+    </div>
+  </Section>
+</main>
+
+<Footer />

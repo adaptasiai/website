@@ -1,0 +1,24 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  background?: 'white' | 'dark' | 'yellow' | 'muted';
+}
+
+const { id, class: className = '', background = 'white' } = Astro.props;
+
+const bgClasses = {
+  white: 'bg-white',
+  dark: 'bg-[#111111] text-white',
+  yellow: 'bg-[#FFE500]',
+  muted: 'bg-[#FAFAFA]',
+};
+
+const borderClass = background !== 'white' ? 'border-[3px] border-black' : '';
+---
+
+<section id={id} class={`py-16 md:py-24 ${bgClasses[background]} ${className}`}>
+  <div class={`section-container ${borderClass}`}>
+    <slot />
+  </div>
+</section>

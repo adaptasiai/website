@@ -1,0 +1,100 @@
+---
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+
+const projects = [
+  {
+    title: 'Automasi Lead Generation untuk Agensi Digital',
+    description: 'Membangun sistem automatisasi yang terintegrasi dengan CRM untuk capturing dan qualifying leads dari berbagai channel.',
+    tags: ['n8n', 'CRM', 'Automation'],
+    color: '#FF6B9D',
+    status: 'Completed',
+  },
+  {
+    title: 'AI Chatbot Customer Service untuk E-commerce',
+    description: 'Implementasi AI chatbot untuk menangani inquiry pelanggan, order tracking, dan FAQ secara 24/7.',
+    tags: ['AI', 'Chatbot', 'E-commerce'],
+    color: '#00C2FF',
+    status: 'Completed',
+  },
+  {
+    title: 'Workflow Automasi untuk Startup F&B',
+    description: 'Sistem automasi untuk managing orders, inventory, dan reporting untuk bisnis franchise makanan.',
+    tags: ['Automation', 'Make.com', 'F&B'],
+    color: '#A8FF00',
+    status: 'Completed',
+  },
+  {
+    title: 'Custom Telegram Bot untuk Internal Operations',
+    description: 'Bot untuk managing task assignment, reminders, dan reporting dalam tim operations.',
+    tags: ['Telegram Bot', 'Internal Tools'],
+    color: '#FFE500',
+    status: 'In Progress',
+  },
+];
+---
+
+<NavBar />
+
+<main class="pt-16">
+  <Section background="yellow" class="!py-20 md:!py-28">
+    <div class="max-w-3xl">
+      <div class="inline-block bg-black text-white px-3 py-1 border-[3px] border-black font-mono text-xs font-bold mb-6">
+        OUR WORK
+      </div>
+      <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+        Portfolio
+      </h1>
+      <p class="text-lg md:text-xl text-[#111111]/80 max-w-2xl">
+        Selected projects showcasing our expertise in AI implementation and workflow automation.
+      </p>
+    </div>
+  </Section>
+
+  <Section background="white">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projects.map(project => (
+        <div class="neo-card overflow-hidden">
+          <div
+            class="h-3 w-full"
+            style={`background: ${project.color};`}
+          />
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-4">
+              <span
+                class="px-3 py-1 border-[3px] border-black font-mono text-xs font-bold"
+                style={`background: ${project.color};`}
+              >
+                {project.status}
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-xl mb-3">{project.title}</h3>
+            <p class="text-[#666666] text-sm mb-4 leading-relaxed">
+              {project.description}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {project.tags.map(tag => (
+                <span class="px-2 py-1 bg-[#FAFAFA] border-[2px] border-black font-mono text-xs">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <p class="text-[#666666] mb-6">
+        Interested in working together?
+      </p>
+      <Button href="/contact" variant="primary" size="lg">
+        Start Your Project →
+      </Button>
+    </div>
+  </Section>
+</main>
+
+<Footer />

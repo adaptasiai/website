@@ -1,0 +1,171 @@
+---
+import Section from './Section.astro';
+import Button from './Button.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<NavBar />
+
+<main class="pt-16">
+  <!-- Hero Section -->
+  <Section background="yellow" class="!py-24 md:!py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-block bg-black text-white px-3 py-1 border-[3px] border-black font-mono text-xs font-bold mb-6">
+          AI & AUTOMATION PARTNER
+        </div>
+        <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+          We Build <span class="bg-white border-[3px] border-black px-2 inline-block" style="box-shadow: 4px 4px 0px #000;">AI</span> That Actually Works For Your Business
+        </h1>
+        <p class="text-lg md:text-xl text-[#111111]/80 mb-8 max-w-lg">
+          From chatbot implementation to full workflow automation — we help Indonesian businesses and international companies scale with AI.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <Button href="/contact" variant="primary" size="lg">
+            Start Your Project →
+          </Button>
+          <Button href="/services" variant="outline" size="lg">
+            View Services
+          </Button>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="bg-white border-[3px] border-black p-8" style="box-shadow: 8px 8px 0px #000;">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-4 h-4 bg-[#FF6B9D] border-[2px] border-black"></div>
+              <span class="font-mono text-sm font-medium">AI Chatbot</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-4 h-4 bg-[#00C2FF] border-[2px] border-black"></div>
+              <span class="font-mono text-sm font-medium">Workflow Automation</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-4 h-4 bg-[#A8FF00] border-[2px] border-black"></div>
+              <span class="font-mono text-sm font-medium">Custom Integration</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-4 h-4 bg-[#FFE500] border-[2px] border-black"></div>
+              <span class="font-mono text-sm font-medium">n8n Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Services Section -->
+  <Section id="services" background="white">
+    <div class="mb-12">
+      <h2 class="font-display font-bold text-3xl md:text-4xl mb-4">Our Services</h2>
+      <p class="text-[#666666] text-lg max-w-2xl">
+        End-to-end AI implementation and automation solutions tailored to your business needs.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Service 1 -->
+      <div class="neo-card p-6">
+        <div class="w-12 h-12 bg-[#FF6B9D] border-[3px] border-black flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+            <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+            <path d="M12 2a10 10 0 0 1 10 10"/>
+            <circle cx="12" cy="12" r="6"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2">AI Implementation</h3>
+        <p class="text-[#666666] text-sm mb-4">
+          Integrate AI capabilities into your existing systems. From chatbots to custom LLM applications.
+        </p>
+        <ul class="space-y-1 text-sm">
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> Chatbot Development
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> LLM Integration
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> AI Consultation
+          </li>
+        </ul>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="neo-card p-6">
+        <div class="w-12 h-12 bg-[#00C2FF] border-[3px] border-black flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+            <path d="M12 3v18"/>
+            <path d="M3 12h18"/>
+            <rect x="6" y="6" width="12" height="12" rx="0"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2">Workflow Automation</h3>
+        <p class="text-[#666666] text-sm mb-4">
+          Automate repetitive tasks and streamline business processes using modern automation tools.
+        </p>
+        <ul class="space-y-1 text-sm">
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> n8n Workflows
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> Make.com / Zapier
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> Business Process
+          </li>
+        </ul>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="neo-card p-6">
+        <div class="w-12 h-12 bg-[#A8FF00] border-[3px] border-black flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+            <rect x="4" y="4" width="16" height="16" rx="0"/>
+            <path d="M9 9h6"/>
+            <path d="M9 13h6"/>
+            <path d="M9 17h4"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2">Custom Bot Development</h3>
+        <p class="text-[#666666] text-sm mb-4">
+          Telegram, Discord, WhatsApp bots — tailored to your business needs and integrated with your systems.
+        </p>
+        <ul class="space-y-1 text-sm">
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> Telegram Bots
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> WhatsApp Integration
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[#A8FF00]">✓</span> API Development
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <Button href="/services" variant="secondary">
+        View All Services →
+      </Button>
+    </div>
+  </Section>
+
+  <!-- CTA Section -->
+  <Section background="dark">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="font-display font-bold text-3xl md:text-4xl mb-4 text-white">
+        Ready to Automate Your Business?
+      </h2>
+      <p class="text-gray-400 text-lg mb-8">
+        Let's discuss how AI and automation can help you scale operations and reduce costs.
+      </p>
+      <Button href="/contact" variant="primary" size="lg">
+        Schedule a Consultation →
+      </Button>
+    </div>
+  </Section>
+</main>
+
+<Footer />

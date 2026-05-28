@@ -1,0 +1,5 @@
+{
+  "name": "adaptasiai",
+  "private": true,
+  "workspaces": ["packages/*"]
+}

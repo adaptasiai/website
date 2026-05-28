@@ -1,0 +1,155 @@
+---
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+
+const services = [
+  {
+    title: 'AI Implementation',
+    description: 'Transform your business with AI. We help you integrate AI capabilities into your existing systems — from customer service chatbots to custom LLM-powered applications.',
+    icon: 'chatbot',
+    features: [
+      'Custom AI Chatbot Development',
+      'Large Language Model (LLM) Integration',
+      'AI Strategy & Consultation',
+      'AI Agent Development',
+      'Document Processing Automation',
+    ],
+    price: 'Starting from Rp 5.000.000',
+    color: '#FF6B9D',
+  },
+  {
+    title: 'Workflow Automation',
+    description: 'Eliminate repetitive tasks and streamline your business processes. We build robust automation workflows using industry-leading tools.',
+    icon: 'workflow',
+    features: [
+      'n8n Workflow Development',
+      'Make.com Scenario Design',
+      'Zapier Automation',
+      'Business Process Automation',
+      'System Integration (API)',
+    ],
+    price: 'Starting from Rp 3.000.000',
+    color: '#00C2FF',
+  },
+  {
+    title: 'Custom Bot Development',
+    description: 'Bots that work for your business. From Telegram to WhatsApp, we build and integrate bots that handle customer interactions, internal operations, and more.',
+    icon: 'bot',
+    features: [
+      'Telegram Bot Development',
+      'WhatsApp Business Integration',
+      'Discord Bot Development',
+      'Customer Service Bots',
+      'Internal Tool Bots',
+    ],
+    price: 'Starting from Rp 2.000.000',
+    color: '#A8FF00',
+  },
+];
+---
+
+<NavBar />
+
+<main class="pt-16">
+  <Section background="yellow" class="!py-20 md:!py-28">
+    <div class="max-w-3xl">
+      <div class="inline-block bg-black text-white px-3 py-1 border-[3px] border-black font-mono text-xs font-bold mb-6">
+        WHAT WE DO
+      </div>
+      <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+        Services Built For Scale
+      </h1>
+      <p class="text-lg md:text-xl text-[#111111]/80 max-w-2xl">
+        From AI chatbots to full workflow automation — we deliver solutions that actually move the needle for your business.
+      </p>
+    </div>
+  </Section>
+
+  <Section background="white">
+    <div class="space-y-16">
+      {services.map((service, index) => (
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class={`lg:col-span-5 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div
+              class="neo-card p-8"
+              style={`border-top: 8px solid ${service.color};`}
+            >
+              <div
+                class="w-16 h-16 border-[3px] border-black flex items-center justify-center mb-6"
+                style={`background: ${service.color};`}
+              >
+                {service.icon === 'chatbot' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+                    <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                    <circle cx="12" cy="12" r="6"/>
+                  </svg>
+                )}
+                {service.icon === 'workflow' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+                    <path d="M12 3v18"/>
+                    <path d="M3 12h18"/>
+                    <rect x="6" y="6" width="12" height="12"/>
+                  </svg>
+                )}
+                {service.icon === 'bot' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+                    <rect x="4" y="4" width="16" height="16"/>
+                    <path d="M9 9h6M9 13h6M9 17h4"/>
+                  </svg>
+                )}
+              </div>
+              <h2 class="font-display font-bold text-2xl md:text-3xl mb-4">{service.title}</h2>
+              <p class="text-[#666666] mb-6 leading-relaxed">{service.description}</p>
+              <div class="bg-[#FAFAFA] border-[3px] border-black p-4 mb-6">
+                <span class="font-mono text-xs font-bold text-[#666666] uppercase">Starting Price</span>
+                <p class="font-display font-bold text-xl mt-1">{service.price}</p>
+              </div>
+              <Button href="/contact" variant="primary" size="md" class="w-full">
+                Get a Quote →
+              </Button>
+            </div>
+          </div>
+
+          <div class={`lg:col-span-7 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <h3 class="font-display font-bold text-lg mb-6 uppercase tracking-wide">
+              What's Included
+            </h3>
+            <ul class="space-y-3">
+              {service.features.map(feature => (
+                <li class="flex items-start gap-3">
+                  <span
+                    class="w-6 h-6 border-[3px] border-black flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={`background: ${service.color};`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                  <span class="font-medium">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section background="dark">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="font-display font-bold text-3xl md:text-4xl mb-4 text-white">
+        Need a Custom Solution?
+      </h2>
+      <p class="text-gray-400 text-lg mb-8">
+        We also handle custom projects. Tell us what you need and we'll build it.
+      </p>
+      <Button href="/contact" variant="primary" size="lg">
+        Let's Talk →
+      </Button>
+    </div>
+  </Section>
+</main>
+
+<Footer />
